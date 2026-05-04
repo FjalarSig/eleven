@@ -59,8 +59,8 @@ export default async function handler(req) {
   const VOICE_ID = process.env.ELEVENLABS_VOICE_ID;
 
   if (!API_KEY || !VOICE_ID) {
-    return new Response(JSON.stringify({ error: 'Villa í uppsetningu þjóns.' }), {
-      status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+    return new Response(.stringify({ error: 'Villa í uppsetningu þjóns.' }), {
+      status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/' }
     });
   }
 
@@ -75,15 +75,16 @@ export default async function handler(req) {
           'Accept': 'audio/mpeg',
         },
         body: JSON.stringify({
-          text,
-          model_id: 'eleven_multilingual_v2',
-          voice_settings: {
-            stability: 0.5,
-            similarity_boost: 0.8,
-            style: 0.0,
-            use_speaker_boost: true,
-          }
-        })
+  text,
+  model_id: 'eleven_multilingual_v2',
+  language_code: 'is',
+  voice_settings: {
+    stability: 0.5,
+    similarity_boost: 0.8,
+    style: 0.0,
+    use_speaker_boost: true,
+  }
+})
       }
     );
 
